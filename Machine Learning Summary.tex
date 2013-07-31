@@ -9,9 +9,10 @@
 \usepackage{pstricks, egameps, sgame}
 \usepackage{bbm}
 \usepackage{multirow}
+\usepackage{pgfplots}
 
 \begin{document}
-\author{Desmond C. Ong}
+\author{Desmond C. Ong, Emily Yeh}
 \title{Machine Learning Summary Notes}
 \date{Autumn 2012}
 \maketitle
@@ -105,7 +106,68 @@ Linear regression can be used in problems where your desired output is a continu
 \end{itemize}
 }. The basic problem is, given a training set $(x,y)$, where $x=(x_1,\ldots,x_j)$ is a vector, and represents our $(j)$ input variables (independent variables) and $y$ represents our output variable (dependent variable). We want to predict new $y$s given new $x$s.
 
-The hypothesis (regression equation) links the predicted value of $y$ to the independent variables $x$. The \textit{Gradient Descent} method tries to minimize the gradient of the error of this hypothesis. (For those familiar with regressions, this is the ordinary least squares model).
+For example, let's say for some $x$ we are trying to solve for $y$. We have the following dataset of $x$ values and corresponding $y$ results (see Figure 2.1). In order to find the optimal model for this data, we want to predict the cost for prediction models and find the model with the least cost.
+%%FIGURE 2.1
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\begin{axis}[%
+scatter/classes={%
+    a={mark=o,draw=black}}]
+\addplot[scatter,only marks,%
+    scatter src=explicit symbolic]%
+table[meta=label] {
+x y label
+1 2 a
+2 1.5 a
+3 2.7 a
+4 2.3 a
+5 3.2 a
+6 5.4 a
+7 7.2 a
+8 7.7 a
+9 4.8 a
+10 9.2 a
+11 7.5 a
+12 6.8 a
+    };
+%\addplot[mark=none, color=red] coordinates{
+%(0, 0.1)
+%(10, 8)
+%};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[%
+scatter/classes={%
+    a={mark=o,draw=black}}]
+\addplot[scatter,only marks,%
+    scatter src=explicit symbolic]%
+table[meta=label] {
+x y label
+1 2 a
+2 1.5 a
+3 2.7 a
+4 2.3 a
+5 3.2 a
+6 5.4 a
+7 7.2 a
+8 7.7 a
+9 4.8 a
+10 9.2 a
+11 7.5 a
+12 6.8 a
+    };
+\addplot[mark=none, color=red] coordinates{
+(0, 0.1)
+(10, 8)
+};
+\end{axis}
+\end{tikzpicture}\\
+{\bf Figure 2.1. (Left) Sample dataset for a regression supervised learning problem. (Right) Sample dataset with prediction model in red.} 
+\end{figure}
+
+We do this by first forming a hypothesis for our prediction model. The hypothesis (regression equation) links the predicted value of $y$ to the independent variables $x$. The \textit{Gradient Descent} method tries to minimize the gradient of the error of this hypothesis. (For those familiar with regressions, this is the ordinary least squares model).
 
 \begin{align}
 \text{Hypothesis: }& h_\theta (x) = \theta_0 + \sum_{j=1}^n \theta_j x_j = \theta^T x\\
@@ -114,8 +176,16 @@ The hypothesis (regression equation) links the predicted value of $y$ to the ind
 &\quad = \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m \left( h_{\theta}(x^{(i)}) - y^{(i)}  \right) x_j^{(i)} \notag
 \end{align}
 
-One way you could visualize this is that the graph of $J$ against $\theta$ would look like a convex, or ``bowl" shaped function, and we wish to minimize the value of $J$ with respect to $\theta$, i.e. we want to find the minimum of the bowl. The $\alpha$ in Eqn. \ref{EqnLMS} is called the learning rate. If the learning rate is too small, the convergence for gradient descent will be too slow. On the other hand, if the learning rate is too large, then each iteration of gradient descent might overshoot the minimum, eventually failing to converge, or even diverging. Note that as the gradient descent algorithm approaches a local minimum, the second term in the update equation will automatically be smaller and hence gradient descent will automatically take smaller steps, so there is no need to decrease $\alpha$ over time.
-
+One way you could visualize this is that the graph of $J$ against $\theta$ would look like a convex, or ``bowl" shaped function, and we wish to minimize the value of $J$ with respect to $\theta$, i.e. we want to find the minimum of the bowl (see Figure 2.2). The $\alpha$ in Eqn. \ref{EqnLMS} is called the learning rate. If the learning rate is too small, the convergence for gradient descent will be too slow. On the other hand, if the learning rate is too large, then each iteration of gradient descent might overshoot the minimum, eventually failing to converge, or even diverging. Note that as the gradient descent algorithm approaches a local minimum, the second term in the update equation will automatically be smaller and hence gradient descent will automatically take smaller steps, so there is no need to decrease $\alpha$ over time.
+\begin{figure} %FIGURE 2.2
+\centering
+\begin{tikzpicture}
+	\begin{axis}
+	\addplot3[mesh,domain=-0.5:0.5] {exp(x^2+y^2)};	
+	\end{axis}
+\end{tikzpicture}\\
+{\bf Figure 2.2. Plot of parameter values for cost function J($\theta_0$,$\theta_1$) on resulting cost.}
+\end{figure}
 
 \subsection{Gradient Descent Implementation}
 
@@ -125,16 +195,15 @@ One suggestion to choosing $\alpha$ is to vary $\alpha$ logarithmically in steps
 
 Note that when doing the updating in Eqn. \ref{EqnLMS}, all the $\theta$ parameters must be updated simultaneously. This makes sense because the second term in the update equation depends on all the rest of the $\theta$s, and once you update $\theta_i$ to $\theta_i'$, the update equation for $\theta_{j\neq i}$ will depend on (the new) $\theta_i'$ rather than (the old) $\theta_i$. (Doing the updating with vectorization automatically takes care of this). 
 
-There are two ways to actually implement this algorithm. \textbf{Batch gradient descent} computes the update equation for the entire training set (i.e. all pairs of $x$ and $y$), and then updates the parameters $\theta$. \textbf{Stochastic gradient descent}, or incremental gradient descent, on the other hand, computes the update equation for one training example (i.e. one pair of $x$ and $y$) at a time and then updates $\theta$. (This is useful if data is coming in one at a time.)
-
-Summary of Gradient Descent Method
+There are two ways to actually implement this algorithm. \textbf{Batch gradient descent} computes the update equation for the entire training set (i.e. all pairs of $x$ and $y$), and then updates the parameters $\theta$. \textbf{Stochastic gradient descent}, or incremental gradient descent, on the other hand, computes the update equation for one training example (i.e. one pair of $x$ and $y$) at a time and then updates $\theta$. (This is useful if data is coming in one at a time.)\\\\
+{\bf Summary of Gradient Descent Method:}
 	\begin{enumerate}
 	\item Begin with some $\theta$
 	\item Change until find minimum $J$
 	\item $\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\vec \theta) = \theta_j - \alpha \frac{1}{m} \sum_{i=1}^m \left( h_{\theta}(x^{(i)}) - y^{(i)}  \right) x_j^{(i)}$
 	\end{enumerate}
 	\begin{itemize}
-	\item Con: Need to choose $\alpha$
+	\item Con: Need to choose an optimal $\alpha$ that won't overshoot or take too much time.
 	\item Con: Needs many iterations.
 	\item Pro: Works well even if $n$ is large ($10^6$)
 	\end{itemize}

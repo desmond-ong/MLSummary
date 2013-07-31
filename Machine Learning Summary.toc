@@ -1,0 +1,89 @@
+\contentsline {section}{\numberline {1}Introduction}{4}
+\contentsline {section}{\numberline {2}Supervised Learning: (Multiple) Linear Regression}{5}
+\contentsline {subsection}{\numberline {2.1}Gradient Descent}{5}
+\contentsline {subsection}{\numberline {2.2}Gradient Descent Implementation}{6}
+\contentsline {subsection}{\numberline {2.3}Feature Scaling}{7}
+\contentsline {subsection}{\numberline {2.4}Normal Equation Method}{7}
+\contentsline {subsection}{\numberline {2.5}Probabilistic Interpretation}{8}
+\contentsline {subsection}{\numberline {2.6}Locally weighted linear regression}{8}
+\contentsline {section}{\numberline {3}Supervised Learning: Classification and Logistic Regression}{8}
+\contentsline {section}{\numberline {4}Supervised Learning: Support Vector Machine}{9}
+\contentsline {subsection}{\numberline {4.1}Large Margin Intuition}{9}
+\contentsline {subsection}{\numberline {4.2}Mathematics Behind Large Margin Classification}{10}
+\contentsline {subsection}{\numberline {4.3}Kernels}{10}
+\contentsline {subsection}{\numberline {4.4}Using An SVM}{10}
+\contentsline {section}{\numberline {5}Supervised Learning: Neural Networks}{11}
+\contentsline {subsection}{\numberline {5.1}Neural Networks: Representation}{11}
+\contentsline {subsection}{\numberline {5.2}Neural Networks: Learning}{12}
+\contentsline {subsubsection}{\numberline {5.2.1}Backpropagation Algorithm}{12}
+\contentsline {subsubsection}{\numberline {5.2.2}Random Initialization}{13}
+\contentsline {subsubsection}{\numberline {5.2.3}Putting it all together}{13}
+\contentsline {section}{\numberline {6}Reinforcement Learning: Recommender Systems}{13}
+\contentsline {section}{\numberline {7}Large-Scale Machine Learning}{15}
+\contentsline {section}{\numberline {8}Application Example: Optical Character Recognition in Photographs}{16}
+\contentsline {section}{\numberline {9}General Linear Models}{17}
+\contentsline {section}{\numberline {10}Generative Learning Algorithms}{18}
+\contentsline {subsubsection}{\numberline {10.0.4}Multivariate Gaussian (normal distribution)}{18}
+\contentsline {subsection}{\numberline {10.1}Gaussian Discriminant Analysis}{18}
+\contentsline {subsection}{\numberline {10.2}Generative and Discriminative comparison}{18}
+\contentsline {subsection}{\numberline {10.3}Naive Bayes}{19}
+\contentsline {subsubsection}{\numberline {10.3.1}Laplace Smoothing}{19}
+\contentsline {subsubsection}{\numberline {10.3.2}Event Models}{19}
+\contentsline {section}{\numberline {11}Support Vector Machine Theory}{20}
+\contentsline {subsection}{\numberline {11.1}Margins}{20}
+\contentsline {subsubsection}{\numberline {11.1.1}Functional Margins}{20}
+\contentsline {subsubsection}{\numberline {11.1.2}Geometric Margin}{20}
+\contentsline {subsection}{\numberline {11.2}Optimal Margin Classifier}{20}
+\contentsline {subsubsection}{\numberline {11.2.1}Lagrange duality}{21}
+\contentsline {subsubsection}{\numberline {11.2.2}Using the dual on optimal margin classifiers}{22}
+\contentsline {subsection}{\numberline {11.3}Kernels}{23}
+\contentsline {paragraph}{Mercer's Theorem}{24}
+\contentsline {paragraph}{The Gaussian Kernel}{24}
+\contentsline {subsection}{\numberline {11.4}Regularization and the non-separable case}{25}
+\contentsline {subsection}{\numberline {11.5}Sequential Minimal Optimization}{25}
+\contentsline {paragraph}{Coordinate Ascent}{25}
+\contentsline {paragraph}{Sequential Minimal Optimization}{25}
+\contentsline {section}{\numberline {12}Learning Theory}{26}
+\contentsline {subsection}{\numberline {12.1}Bias (under-fitting) and Variance (over-fitting)}{26}
+\contentsline {paragraph}{Union Bound Lemma}{27}
+\contentsline {paragraph}{Hoeffding inequality, or Chernoff bound}{27}
+\contentsline {subsection}{\numberline {12.2}Finite hypothesis classes}{27}
+\contentsline {paragraph}{Theorem}{28}
+\contentsline {subsection}{\numberline {12.3}Infinite hypothesis classes}{28}
+\contentsline {paragraph}{Theorem (Vapnik)}{28}
+\contentsline {section}{\numberline {13}Regularization and model selection}{29}
+\contentsline {subsection}{\numberline {13.1}Cross validation}{29}
+\contentsline {paragraph}{$k$-fold cross validation}{29}
+\contentsline {paragraph}{Leave-one-out cross validation}{29}
+\contentsline {subsection}{\numberline {13.2}Feature selection}{29}
+\contentsline {subsection}{\numberline {13.3}Bayesian statistics and regularization}{30}
+\contentsline {subsection}{\numberline {13.4}Regularization}{31}
+\contentsline {section}{\numberline {14}Online Learning}{31}
+\contentsline {subsection}{\numberline {14.1}The Perceptron}{32}
+\contentsline {section}{\numberline {15}Machine Learning Application and System Design}{32}
+\contentsline {subsection}{\numberline {15.1}Debugging learning algorithms}{32}
+\contentsline {subsection}{\numberline {15.2}Learning Curves: Bias and variance}{32}
+\contentsline {subsection}{\numberline {15.3}Algorithm vs. objective}{33}
+\contentsline {subsection}{\numberline {15.4}Machine Learning System Design}{34}
+\contentsline {subsubsection}{\numberline {15.4.1}Error Analysis}{34}
+\contentsline {subsubsection}{\numberline {15.4.2}Ablative analysis}{34}
+\contentsline {subsubsection}{\numberline {15.4.3}Skewed classes: Precision and Recall}{34}
+\contentsline {subsubsection}{\numberline {15.4.4}Confusion Matrices}{35}
+\contentsline {section}{\numberline {16}Unsupervised Learning: $k$-means clustering}{36}
+\contentsline {section}{\numberline {17}Unsupervised Learning: Mixture of Gaussians and the Expectation-Maximization Algorithm}{36}
+\contentsline {subsection}{\numberline {17.1}EM on the Mixture of Gaussians model}{36}
+\contentsline {subsection}{\numberline {17.2}The General EM Algorithm}{38}
+\contentsline {paragraph}{Jensen's inequality (Theorem):}{38}
+\contentsline {subsubsection}{\numberline {17.2.1}Revisiting Mixture of Gaussians}{39}
+\contentsline {subsubsection}{\numberline {17.2.2}Mixture of Naive Bayes model}{40}
+\contentsline {subsection}{\numberline {17.3}Anomaly detection}{40}
+\contentsline {section}{\numberline {18}Unsupervised Learning: Factor Analysis}{41}
+\contentsline {subsection}{\numberline {18.1}EM algorithm for Factor Analysis}{42}
+\contentsline {section}{\numberline {19}Unsupervised Learning: Principal Component Analysis}{42}
+\contentsline {section}{\numberline {20}Unsupervised Learning: Independent Component Analysis}{44}
+\contentsline {section}{\numberline {21}Reinforcement Learning}{45}
+\contentsline {subsection}{\numberline {21.1}Markov Decision Process (MDP)}{45}
+\contentsline {subsection}{\numberline {21.2}Value Iteration Algorithm}{46}
+\contentsline {subsection}{\numberline {21.3}Policy Iteration Algorithm}{47}
+\contentsline {subsection}{\numberline {21.4}Dealing with continuous state spaces: Value Function Approximation}{47}
+\contentsline {subsubsection}{\numberline {21.4.1}Fitted value iteration}{48}
